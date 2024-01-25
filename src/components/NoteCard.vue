@@ -10,9 +10,9 @@ defineProps<{
     <p class="title">{{ title }}</p>
     <p class="text">{{ text }}</p>
     <div class="icon-row">
-      <i class="icon-item">icon</i>
-      <i class="icon-item">icon</i>
-      <i class="icon-item">icon</i>
+      <i class="icon-item">delete</i>
+      <i class="icon-item">edit</i>
+      <i class="icon-item">copy</i>
     </div>
   </div>
 </template>

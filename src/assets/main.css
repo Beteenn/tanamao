@@ -39,3 +39,8 @@ a,
   text-align: center;
   font-weight: bold;
 }
+
+.icon-item {
+  padding-left: 0.8rem;
+  cursor: pointer;
+}
