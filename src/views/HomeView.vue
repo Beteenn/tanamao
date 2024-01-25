@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import TopicCard from '@/components/TopicCard.vue';
-import PrimaryButton from '@/components/button/PrimaryButton.vue';
+import TopicCard from '@/components/TopicCard.vue'
+import PrimaryButton from '@/components/button/PrimaryButton.vue'
 
 const topics = [
   { name: 'Tomadores' },
@@ -25,8 +25,7 @@ const topics = [
       <TopicCard v-for="topic in topics" :name="topic.name" />
     </div>
 
-    <PrimaryButton text="Adicionar Tópico"/>
-
+    <PrimaryButton text="Adicionar Tópico" />
   </main>
 </template>
 

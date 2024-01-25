@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PrimaryButton from '@/components/button/PrimaryButton.vue';
+import PrimaryButton from '@/components/button/PrimaryButton.vue'
 </script>
 
 <template>
@@ -9,15 +9,14 @@ import PrimaryButton from '@/components/button/PrimaryButton.vue';
     </header>
 
     <div class="row">
-      <input class="input" type="text" value="Titulo">
+      <input class="input" type="text" value="Titulo" />
     </div>
 
     <div class="row">
       <textarea class="text-area" type="text"></textarea>
     </div>
 
-    <PrimaryButton text="Atualizar Nota"/>
-
+    <PrimaryButton text="Atualizar Nota" />
   </main>
 </template>
 
