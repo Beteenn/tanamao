@@ -31,12 +31,6 @@ const topics = [
 </template>
 
 <style scoped>
-.title {
-  color: white;
-  text-align: center;
-  font-weight: bold;
-}
-
 .topics-list {
   height: 77vh;
   overflow: auto;
