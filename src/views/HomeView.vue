@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import TopicCard from '@/components/TopicCard.vue'
-import NoteCard from '@/components/NoteCard.vue'
+import TopicCard from '@/components/TopicCard.vue';
+import PrimaryButton from '@/components/button/PrimaryButton.vue';
 
 const topics = [
   { name: 'Tomadores' },
@@ -25,7 +25,8 @@ const topics = [
       <TopicCard v-for="topic in topics" :name="topic.name" />
     </div>
 
-    <div class="primary-button">Novo Tópico</div>
+    <PrimaryButton text="Adicionar Tópico"/>
+
   </main>
 </template>
 
@@ -39,27 +40,5 @@ const topics = [
 .topics-list {
   height: 77vh;
   overflow: auto;
-}
-
-.primary-button {
-  cursor: pointer;
-  display: flex;
-  color: white;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  background-color: #8000ff;
-  border: 0.15rem solid #5f02bd;
-  font-size: 1.2rem;
-  height: 7vh;
-  border-radius: 0.3rem;
-  position: fixed;
-  bottom: 1rem;
-  width: 85vw;
-}
-
-.primary-button:hover {
-  background-color: #6f00df;
-  transition-duration: 0.3s;
 }
 </style>
