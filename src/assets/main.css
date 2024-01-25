@@ -33,3 +33,9 @@ a,
     padding: 0 2rem;
   }
 }
+
+.title {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}

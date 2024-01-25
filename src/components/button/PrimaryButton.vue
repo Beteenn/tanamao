@@ -21,9 +21,7 @@ defineProps<{
   font-size: 1.2rem;
   height: 7vh;
   border-radius: 0.3rem;
-  position: fixed;
-  bottom: 1rem;
-  width: 85vw;
+  flex-basis: 100%;
 }
 
 .primary-button:hover {
