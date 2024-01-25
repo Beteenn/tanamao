@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TopicCard from '@/components/TopicCard.vue'
-import NoteCard from '@/components/NoteCard.vue'
+import router from '@/router';
 
 const topics = [
   { name: 'Tomadores' },
@@ -22,7 +22,7 @@ const topics = [
     </header>
 
     <div class="topics-list">
-      <TopicCard v-for="topic in topics" :name="topic.name" />
+      <TopicCard v-for="topic in topics" :name="topic.name" @click="router.push('/notes')" />
     </div>
 
     <div class="primary-button">Novo Tópico</div>
@@ -30,36 +30,8 @@ const topics = [
 </template>
 
 <style scoped>
-.title {
-  color: white;
-  text-align: center;
-  font-weight: bold;
-}
-
 .topics-list {
   height: 77vh;
   overflow: auto;
-}
-
-.primary-button {
-  cursor: pointer;
-  display: flex;
-  color: white;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  background-color: #8000ff;
-  border: 0.15rem solid #5f02bd;
-  font-size: 1.2rem;
-  height: 7vh;
-  border-radius: 0.3rem;
-  position: fixed;
-  bottom: 1rem;
-  width: 85vw;
-}
-
-.primary-button:hover {
-  background-color: #6f00df;
-  transition-duration: 0.3s;
 }
 </style>
