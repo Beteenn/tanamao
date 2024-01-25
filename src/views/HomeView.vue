@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TopicCard from '@/components/TopicCard.vue'
+import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import router from '@/router';
 
 const topics = [
@@ -25,7 +26,7 @@ const topics = [
       <TopicCard v-for="topic in topics" :name="topic.name" @click="router.push('/notes')" />
     </div>
 
-    <div class="primary-button">Novo Tópico</div>
+    <PrimaryButton text="Adicionar Tópico" />
   </main>
 </template>
 
