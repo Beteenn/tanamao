@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TopicCard from '@/components/TopicCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
-import router from '@/router';
+import router from '@/router'
 
 const topics = [
   { name: 'Tomadores' },
