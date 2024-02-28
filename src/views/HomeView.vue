@@ -1,19 +1,36 @@
-<script setup lang="ts">
+<script lang="ts">
 import TopicCard from '@/components/TopicCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
-import router from '@/router'
+import router  from '@/router';
+import type Topic from '@/interfaces/Topic';
+import TopicService from '@/services/TopicService';
+import NewTopicCard from '@/components/NewTopicCard.vue';
 
-const topics = [
-  { name: 'Tomadores' },
-  { name: 'Corretoras' },
-  { name: 'Segurados' },
-  { name: 'Assessorias' },
-  { name: 'Emails' },
-  { name: 'Endereços' },
-  { name: 'Segurados' },
-  { name: 'Corretoras' },
-  { name: 'Assessorias' }
-]
+export default {
+  components: {
+    TopicCard,
+    PrimaryButton,
+    NewTopicCard
+  },
+  data() {
+    return {
+      showTopicCard: false,
+      topics: [] as Topic[],
+      router: router
+    }
+  },
+  methods: {
+    showAddNewTopic() {
+      this.showTopicCard = true;
+    },
+    handleModal(){
+      this.showTopicCard = !this.showTopicCard;
+    }
+  },
+  mounted() {
+    this.topics = TopicService.getTopics();
+  }
+}
 </script>
 
 <template>
@@ -25,8 +42,14 @@ const topics = [
     <div class="topics-list">
       <TopicCard v-for="topic in topics" :name="topic.name" @click="router.push('/notes')" />
     </div>
+    
+    <div class="new-topic" v-if="showTopicCard" >
+      <NewTopicCard @toggle-visibility="handleModal()" />
+    </div>
+    
+    <PrimaryButton text="Adicionar Tópico" @click="showAddNewTopic()" />
 
-    <PrimaryButton text="Adicionar Tópico" />
+    <div class="overlay" v-if="showTopicCard"></div>
   </main>
 </template>
 
@@ -34,5 +57,13 @@ const topics = [
 .topics-list {
   height: 77vh;
   overflow: auto;
+}
+
+.new-topic {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 </style>
