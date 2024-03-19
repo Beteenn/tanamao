@@ -5,13 +5,16 @@ import router  from '@/router';
 import type Topic from '@/interfaces/Topic';
 import TopicService from '@/services/TopicService';
 import NewTopicCard from '@/components/NewTopicCard.vue';
+import HeaderApp from '@/components/HeaderApp.vue';
 
 export default {
   components: {
     TopicCard,
     PrimaryButton,
-    NewTopicCard
+    NewTopicCard,
+    HeaderApp
   },
+
   data() {
     return {
       showTopicCard: false,
@@ -19,6 +22,7 @@ export default {
       router: router
     }
   },
+
   methods: {
     showAddNewTopic() {
       this.showTopicCard = true;
@@ -27,6 +31,7 @@ export default {
       this.showTopicCard = !this.showTopicCard;
     }
   },
+
   mounted() {
     this.topics = TopicService.getTopics();
   }
@@ -35,14 +40,12 @@ export default {
 
 <template>
   <main>
-    <header>
-      <h1 class="title">TaNaMao</h1>
-    </header>
+    <HeaderApp />
 
     <div class="topics-list">
       <p class="empty-list-warning" v-if="topics.length < 1">Ainda não existem Tópicos</p>
 
-      <TopicCard v-for="topic in topics" :name="topic.name" @click="router.push('/notes')" />
+      <TopicCard v-bind:key="topic.name" v-for="topic in topics" :name="topic.name" @click="router.push('/notes')" />
     </div>
     
     <div class="new-topic" v-if="showTopicCard" >

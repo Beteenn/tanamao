@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import HeaderApp from '@/components/HeaderApp.vue';
 import NoteCard from '@/components/NoteCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
-import router from '@/router'
 
 const notes = [
   { title: 'CNPJ', text: 'Testando a exibição do texto!' },
@@ -14,15 +14,10 @@ const notes = [
 
 <template>
   <main>
-    <header>
-      <div class="container">
-        <span class="icon-back"><i class="icon-item" @click="router.push('/')">back</i></span>
-        <span><h1 class="title">TaNaMao</h1></span>
-      </div>
-    </header>
+    <HeaderApp :showBackButton="true" />
 
     <div>
-      <NoteCard v-for="note in notes" :title="note.title" :text="note.text" />
+      <NoteCard v-bind:key="note.title" v-for="note in notes" :title="note.title" :text="note.text" />
     </div>
 
     <PrimaryButton text="Adicionar Nota" />
@@ -30,12 +25,4 @@ const notes = [
 </template>
 
 <style scoped>
-.container {
-  position: relative;
-}
-
-.icon-back {
-  position: absolute;
-  padding-top: 1rem;
-}
 </style>
