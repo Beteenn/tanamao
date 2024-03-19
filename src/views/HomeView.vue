@@ -40,6 +40,8 @@ export default {
     </header>
 
     <div class="topics-list">
+      <p class="empty-list-warning" v-if="topics.length < 1">Ainda não existem Tópicos</p>
+
       <TopicCard v-for="topic in topics" :name="topic.name" @click="router.push('/notes')" />
     </div>
     
@@ -65,5 +67,11 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+}
+
+.empty-list-warning {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
 }
 </style>
