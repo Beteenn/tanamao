@@ -1,4 +1,4 @@
-var topics : any = [];
+let topics : any = [];
 
 export default {
 
