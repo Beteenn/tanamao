@@ -17,8 +17,8 @@ defineProps<{
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  background-color: #DF1824;
-  border: 0.15rem solid #DF1824;
+  background-color: #df1824;
+  border: 0.15rem solid #df1824;
   font-size: 1.2rem;
   border-radius: 0.5rem;
   margin: 0.1rem;

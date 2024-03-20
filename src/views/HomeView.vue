@@ -1,11 +1,11 @@
 <script lang="ts">
 import TopicCard from '@/components/TopicCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
-import router  from '@/router';
-import type Topic from '@/interfaces/Topic';
-import NewTopicCard from '@/components/NewTopicCard.vue';
-import HeaderApp from '@/components/HeaderApp.vue';
-import { useTopicsStore } from '@/stores/topicStore';
+import router from '@/router'
+import type Topic from '@/interfaces/Topic'
+import NewTopicCard from '@/components/NewTopicCard.vue'
+import HeaderApp from '@/components/HeaderApp.vue'
+import { useTopicsStore } from '@/stores/topicStore'
 
 export default {
   components: {
@@ -25,17 +25,17 @@ export default {
 
   methods: {
     showAddNewTopic() {
-      this.showTopicCard = true;
+      this.showTopicCard = true
     },
 
-    handleModal(){
-      this.showTopicCard = false;
+    handleModal() {
+      this.showTopicCard = false
     }
   },
 
   mounted() {
-    let topicsStore = useTopicsStore();
-    this.topics = topicsStore.topics;
+    let topicsStore = useTopicsStore()
+    this.topics = topicsStore.topics
   }
 }
 </script>
@@ -47,13 +47,18 @@ export default {
     <div class="topics-list">
       <p class="empty-list-warning" v-if="topics.length < 1">Ainda não existem Tópicos</p>
 
-      <TopicCard v-bind:key="topic.id" v-for="topic in topics" :name="topic.name" @click="router.push(`/notes/${topic.id}`)" />
+      <TopicCard
+        v-bind:key="topic.id"
+        v-for="topic in topics"
+        :name="topic.name"
+        @click="router.push(`/notes/${topic.id}`)"
+      />
     </div>
-    
-    <div class="new-topic" v-if="showTopicCard" >
+
+    <div class="new-topic" v-if="showTopicCard">
       <NewTopicCard @toggle-visibility="handleModal()" />
     </div>
-    
+
     <PrimaryButton text="Adicionar Tópico" @click="showAddNewTopic()" />
 
     <div class="overlay" v-if="showTopicCard"></div>

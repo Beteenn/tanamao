@@ -4,22 +4,21 @@ import router from '@/router'
 export default {
   methods: {
     goBack() {
-      router.push('/');
+      router.push('/')
     }
   },
 
   props: {
     showBackButton: {
       type: Boolean,
-      default: false,
-    },
-  },
-};
-
+      default: false
+    }
+  }
+}
 </script>
 
 <template>
-    <header>
+  <header>
     <div class="container">
       <span v-if="showBackButton" class="icon-back">
         <i class="icon-item" @click="goBack">back</i>
