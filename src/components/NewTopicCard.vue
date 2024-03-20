@@ -20,7 +20,7 @@ export default {
             if (this.topicName != '')
             {
                 let topicsStore = useTopicsStore()
-                topicsStore.addTopic({ name: this.topicName });
+                topicsStore.addTopic(this.topicName);
                 this.$emit('toggle-visibility');
             }
         },
@@ -39,7 +39,7 @@ export default {
             <header>
                 <h2 class="title">Novo Tópico</h2>
             </header>
-            <input type="text" placeholder="Titulo" v-model="topicName" class="input-text">
+            <input type="text" placeholder="Titulo" v-model="topicName" class="input-text" autofocus>
             <div class="footer">
                 <CancelButton text="Não" @click="closeModal()"/>
                 <ConfirmButton text="Sim" @click="addNewTopic()" />

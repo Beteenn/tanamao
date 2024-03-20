@@ -1,5 +1,6 @@
 import type Topic from '@/interfaces/Topic';
 import { defineStore } from 'pinia';
+import { v4 as uuidv4 } from 'uuid';
 
 export const useTopicsStore = defineStore('topics', {
   state() {
@@ -7,13 +8,14 @@ export const useTopicsStore = defineStore('topics', {
   },
 
   actions: {
-    addTopic(topic: Topic) {
-      this.topics.push(topic);
+    addTopic(topicName: string) {
+      let newTopic: Topic = {id: uuidv4(), name: topicName}
+      this.topics.push(newTopic);
       this.saveTopics();
     },
 
     removeTopic(topic: Topic) {
-      this.topics = this.topics.filter((t) => t !== topic);
+      this.topics = this.topics.filter((t: Topic) => t !== topic);
       this.saveTopics();
     },
 
