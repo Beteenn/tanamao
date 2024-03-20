@@ -2,6 +2,8 @@
 import CancelButton from '@/components/button/CancelButton.vue'
 import ConfirmButton from '@/components/button/ConfirmButton.vue'
 import router from '@/router'
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 import { useTopicsStore } from '@/stores/topicStore'
 
 export default {
@@ -17,11 +19,14 @@ export default {
   },
   methods: {
     addNewTopic() {
-      if (this.topicName != '') {
-        let topicsStore = useTopicsStore()
-        topicsStore.addTopic(this.topicName)
-        this.$emit('toggle-visibility')
+      if (this.topicName == '') {
+        toast.error('Digite um nome para o Tópico.');
+        return;
       }
+
+      let topicsStore = useTopicsStore()
+      topicsStore.addTopic(this.topicName)
+      this.$emit('toggle-visibility')
     },
 
     closeModal() {

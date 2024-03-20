@@ -1,18 +1,34 @@
-<script setup lang="ts">
-defineProps<{
-  title: string
-  text: string
-}>()
+<script lang="ts">
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
+
+export default {
+  methods: {
+    copyToClipBoard() {
+      navigator.clipboard.writeText(this.text!)
+      toast.success('Nota copiada!');
+    }
+  },
+
+  props: {
+    title: {
+      type: String,
+    },
+    text: {
+      type: String
+    },
+  }
+}
 </script>
 
 <template>
   <div class="card">
-    <p class="title">{{ title }}</p>
-    <p class="text">{{ text }}</p>
+    <p class="title" @click="copyToClipBoard">{{ title }}</p>
+    <p class="text" @click="copyToClipBoard">{{ text }}</p>
     <div class="icon-row">
       <i class="icon-item">delete</i>
       <i class="icon-item">edit</i>
-      <i class="icon-item">copy</i>
+      <i class="icon-item" @click="copyToClipBoard">copy</i>
     </div>
   </div>
 </template>
@@ -29,10 +45,12 @@ defineProps<{
 }
 
 .text {
+  cursor: pointer;
   font-size: 1rem;
 }
 
 .title {
+  cursor: pointer;
   font-weight: bold;
 }
 
