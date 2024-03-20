@@ -26,6 +26,7 @@ export default {
 
       let topicsStore = useTopicsStore()
       topicsStore.addTopic(this.topicName)
+      toast.success('Tópico Criado!')
       this.$emit('toggle-visibility')
     },
 
