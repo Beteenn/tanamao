@@ -20,8 +20,8 @@ export default {
   methods: {
     addNewTopic() {
       if (this.topicName == '') {
-        toast.error('Digite um nome para o Tópico.');
-        return;
+        toast.error('Digite um nome para o Tópico.')
+        return
       }
 
       let topicsStore = useTopicsStore()
