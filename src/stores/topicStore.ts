@@ -1,6 +1,7 @@
 import type Topic from '@/interfaces/Topic'
 import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
+import { useNoteStore } from './noteStore'
 
 export const useTopicsStore = defineStore('topics', {
   state() {
@@ -26,6 +27,26 @@ export const useTopicsStore = defineStore('topics', {
     setTopics(topics: Topic[]) {
       this.topics = topics
       this.saveTopics()
+    },
+
+    exportJson() {
+      const blob = new Blob([this.crateJsonExport()], { type: 'text/plain' })
+      const link = document.createElement('a')
+      link.href = URL.createObjectURL(blob)
+      link.download = 'topics.json'
+      link.click()
+      URL.revokeObjectURL(link.href)
+    },
+
+    crateJsonExport() {
+      const notesStore = useNoteStore()
+
+      const data = {
+        topics: this.topics,
+        notes: notesStore.notes
+      }
+
+      return JSON.stringify(data)
     }
   }
 })
