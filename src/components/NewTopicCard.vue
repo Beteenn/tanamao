@@ -1,8 +1,8 @@
 <script lang="ts">
 import CancelButton from '@/components/button/CancelButton.vue'
 import ConfirmButton from '@/components/button/ConfirmButton.vue'
-import TopicService from '@/services/TopicService';
 import router  from '@/router';
+import { useTopicsStore } from '@/stores/topicStore';
 
 export default {
     components: {
@@ -12,16 +12,19 @@ export default {
     data() {
         return {
             router: router,
-            topic: ''
+            topicName: ''
         }
     },
     methods: {
         addNewTopic(){
-            TopicService.addTopic({
-                name: this.topic
-            });
-            location.reload();
+            if (this.topicName != '')
+            {
+                let topicsStore = useTopicsStore()
+                topicsStore.addTopic({ name: this.topicName });
+                this.$emit('toggle-visibility');
+            }
         },
+
         closeModal(){
             this.$emit('toggle-visibility');
         }
@@ -36,7 +39,7 @@ export default {
             <header>
                 <h2 class="title">Novo Tópico</h2>
             </header>
-            <input type="text" placeholder="Titulo" v-model="topic" class="input-text">
+            <input type="text" placeholder="Titulo" v-model="topicName" class="input-text">
             <div class="footer">
                 <CancelButton text="Não" @click="closeModal()"/>
                 <ConfirmButton text="Sim" @click="addNewTopic()" />

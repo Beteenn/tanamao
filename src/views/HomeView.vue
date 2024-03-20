@@ -3,9 +3,9 @@ import TopicCard from '@/components/TopicCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import router  from '@/router';
 import type Topic from '@/interfaces/Topic';
-import TopicService from '@/services/TopicService';
 import NewTopicCard from '@/components/NewTopicCard.vue';
 import HeaderApp from '@/components/HeaderApp.vue';
+import { useTopicsStore } from '@/stores/topicStore';
 
 export default {
   components: {
@@ -27,13 +27,15 @@ export default {
     showAddNewTopic() {
       this.showTopicCard = true;
     },
+
     handleModal(){
-      this.showTopicCard = !this.showTopicCard;
+      this.showTopicCard = false;
     }
   },
 
   mounted() {
-    this.topics = TopicService.getTopics();
+    let topicsStore = useTopicsStore();
+    this.topics = topicsStore.topics;
   }
 }
 </script>
