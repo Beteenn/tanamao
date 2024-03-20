@@ -10,6 +10,7 @@ defineProps<{
 
 <style scoped>
 .confirm-button {
+  cursor: pointer;
   color: #000;
   display: flex;
   width: 4.2rem;

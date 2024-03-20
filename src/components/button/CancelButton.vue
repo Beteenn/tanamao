@@ -10,6 +10,7 @@ defineProps<{
 
 <style scoped>
 .cancel-button {
+  cursor: pointer;
   display: flex;
   width: 4.2rem;
   height: 2rem;
