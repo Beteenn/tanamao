@@ -17,9 +17,10 @@ const router = createRouter({
       component: EditNoteView
     },
     {
-      path: '/notes',
+      path: '/notes/:topicId',
       name: 'notes',
-      component: NotesView
+      component: NotesView,
+      props: true
     }
   ]
 })

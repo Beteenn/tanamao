@@ -47,7 +47,7 @@ export default {
     <div class="topics-list">
       <p class="empty-list-warning" v-if="topics.length < 1">Ainda não existem Tópicos</p>
 
-      <TopicCard v-bind:key="topic.name" v-for="topic in topics" :name="topic.name" @click="router.push('/notes')" />
+      <TopicCard v-bind:key="topic.id" v-for="topic in topics" :name="topic.name" @click="router.push(`/notes/${topic.id}`)" />
     </div>
     
     <div class="new-topic" v-if="showTopicCard" >
