@@ -1,6 +1,7 @@
 <script lang="ts">
 import HeaderApp from '@/components/HeaderApp.vue'
 import { useTopicsStore } from '@/stores/topicStore'
+import router from '@/router'
 
 export default {
   components: {
@@ -11,6 +12,10 @@ export default {
     exportJson() {
       let topicsStore = useTopicsStore()
       topicsStore.exportJson()
+    },
+
+    goToImport() {
+      router.push('/import')
     }
   },
 
@@ -22,7 +27,7 @@ export default {
   <main>
     <HeaderApp :showBackButton="true" />
 
-    <div class="setting-card">Importar Topicos e Notas</div>
+    <div class="setting-card" @click="goToImport">Importar Topicos e Notas</div>
     <div class="setting-card" @click="exportJson">Exportar Topicos e Notas</div>
   </main>
 </template>
