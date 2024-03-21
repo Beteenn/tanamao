@@ -9,15 +9,19 @@ export const useNoteStore = defineStore('notes', {
 
   actions: {
     addNote(noteTitle: string, note: string, parentId: string) {
-      console.log('entrei aqui')
       const newNote: Note = {
         id: uuidv4(),
         title: noteTitle,
         text: note,
         parentId: parentId
       }
-      console.log('nota: ', newNote)
+
       this.notes.push(newNote)
+      this.saveNotes()
+    },
+
+    importNotes(notes: Note[]) {
+      this.notes = notes
       this.saveNotes()
     },
 

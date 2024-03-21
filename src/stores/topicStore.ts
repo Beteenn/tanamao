@@ -22,6 +22,11 @@ export const useTopicsStore = defineStore('topics', {
       this.saveTopics()
     },
 
+    importTopics(topics: Topic[]) {
+      this.topics = topics
+      this.saveTopics()
+    },
+
     removeTopic(topic: Topic) {
       this.topics = this.topics.filter((t: Topic) => t !== topic)
       this.saveTopics()
@@ -59,14 +64,24 @@ export const useTopicsStore = defineStore('topics', {
     importAddJson(data: any) {
       const topicsToImport = data.topics as Topic[]
 
-      topicsToImport.forEach(x => this.importTopic(x.id, x.name))
-      
+      topicsToImport.forEach((newTopic) => this.importTopic(newTopic.id, newTopic.name))
+
       const notesStore = useNoteStore()
       const notesToImport = data.notes as Note[]
 
-      notesToImport.forEach(x => notesStore.addNote(x.title, x.text, x.parentId))
+      notesToImport.forEach((newNote) => notesStore.addNote(newNote.title, newNote.text, newNote.parentId))
     },
 
-    importOverrideJson(data: any) {}
+    importOverrideJson(data: any) {
+      const notesStore = useNoteStore()
+
+      const topicsToImport = data.topics as Topic[]
+
+      this.importTopics(topicsToImport)
+
+      const notesToImport = data.notes as Note[]
+
+      notesStore.importNotes(notesToImport)
+    }
   }
 })
