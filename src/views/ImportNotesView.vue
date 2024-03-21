@@ -47,6 +47,12 @@ export default {
     },
 
     importFile() {
+
+      if (!this.selectedFile || this.selectedOption == '') {
+        toast.error('Complete as informações para importação.')
+        return;
+      }
+
       const topicsStore = useTopicsStore()
 
       const toastOptions = {
