@@ -2,7 +2,7 @@
 import HeaderApp from '@/components/HeaderApp.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import { useTopicsStore } from '@/stores/topicStore'
-import { toast } from 'vue3-toastify'
+import { toast, type ToastOptions } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import router from '@/router'
 
@@ -49,16 +49,22 @@ export default {
     importFile() {
       const topicsStore = useTopicsStore()
 
+      const toastOptions = {
+        onClose: () => router.push('/'),
+        autoClose: 3000
+      } as ToastOptions
+
+      var toastSuccess = toast.success('Notas importadas!', toastOptions)
+
       if (this.selectedOption == '1') {
         topicsStore.importOverrideJson(this.textToImport)
-        router.push('/')
-        toast.success('Notas importadas!')
+        toastSuccess
+
         return
       }
 
       topicsStore.importAddJson(this.textToImport)
-      router.push('/')
-      toast.success('Notas importadas!')
+      toastSuccess
     }
   },
 
