@@ -2,6 +2,8 @@
 import HeaderApp from '@/components/HeaderApp.vue'
 import { useTopicsStore } from '@/stores/topicStore'
 import router from '@/router'
+import { toast, type ToastOptions } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 
 export default {
   components: {
@@ -12,6 +14,13 @@ export default {
     exportJson() {
       let topicsStore = useTopicsStore()
       topicsStore.exportJson()
+
+      const toastOptions = {
+        onClose: () => router.push('/'),
+        autoClose: 3000
+      } as ToastOptions
+
+      toast.success('Notas Exportadas!', toastOptions)
     },
 
     goToImport() {
