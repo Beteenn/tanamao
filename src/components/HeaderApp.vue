@@ -4,7 +4,11 @@ import router from '@/router'
 export default {
   methods: {
     goBack() {
-      router.push('/')
+      router.back()
+    },
+
+    goToSettings() {
+      router.push('/settings')
     }
   },
 
@@ -20,10 +24,16 @@ export default {
 <template>
   <header>
     <div class="container">
-      <span v-if="showBackButton" class="icon-back">
+      <span v-if="showBackButton">
         <i class="icon-item" @click="goBack">back</i>
       </span>
+      <span v-if="!showBackButton">
+        <i class="icon-item"></i>
+      </span>
       <span><h1 class="title">TaNaMao</h1></span>
+      <span class="icon-settings">
+        <i class="icon-item" @click="goToSettings">Settings</i>
+      </span>
     </div>
   </header>
 </template>
@@ -35,10 +45,12 @@ export default {
 
 .container {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.icon-back {
-  position: absolute;
-  padding-top: 1rem;
+.icon-item {
+  cursor: pointers;
 }
 </style>

@@ -1,6 +1,8 @@
 import type Topic from '@/interfaces/Topic'
 import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
+import { useNoteStore } from './noteStore'
+import type Note from '@/interfaces/Note'
 
 export const useTopicsStore = defineStore('topics', {
   state() {
@@ -11,6 +13,17 @@ export const useTopicsStore = defineStore('topics', {
     addTopic(topicName: string) {
       const newTopic: Topic = { id: uuidv4(), name: topicName }
       this.topics.push(newTopic)
+      this.saveTopics()
+    },
+
+    importTopic(id: string, topicName: string) {
+      const newTopic: Topic = { id: id, name: topicName }
+      this.topics.push(newTopic)
+      this.saveTopics()
+    },
+
+    importTopics(topics: Topic[]) {
+      this.topics = topics
       this.saveTopics()
     },
 
@@ -26,6 +39,49 @@ export const useTopicsStore = defineStore('topics', {
     setTopics(topics: Topic[]) {
       this.topics = topics
       this.saveTopics()
+    },
+
+    exportJson() {
+      const blob = new Blob([this.crateJsonExport()], { type: 'text/plain' })
+      const link = document.createElement('a')
+      link.href = URL.createObjectURL(blob)
+      link.download = 'topics.json'
+      link.click()
+      URL.revokeObjectURL(link.href)
+    },
+
+    crateJsonExport() {
+      const notesStore = useNoteStore()
+
+      const data = {
+        topics: this.topics,
+        notes: notesStore.notes
+      }
+
+      return JSON.stringify(data)
+    },
+
+    importAddJson(data: any) {
+      const topicsToImport = data.topics as Topic[]
+
+      topicsToImport.forEach((newTopic) => this.importTopic(newTopic.id, newTopic.name))
+
+      const notesStore = useNoteStore()
+      const notesToImport = data.notes as Note[]
+
+      notesToImport.forEach((newNote) => notesStore.addNote(newNote.title, newNote.text, newNote.parentId))
+    },
+
+    importOverrideJson(data: any) {
+      const notesStore = useNoteStore()
+
+      const topicsToImport = data.topics as Topic[]
+
+      this.importTopics(topicsToImport)
+
+      const notesToImport = data.notes as Note[]
+
+      notesStore.importNotes(notesToImport)
     }
   }
 })

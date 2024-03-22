@@ -6,17 +6,17 @@ export default {
   methods: {
     copyToClipBoard() {
       navigator.clipboard.writeText(this.text!)
-      toast.success('Nota copiada!');
+      toast.success('Nota copiada!')
     }
   },
 
   props: {
     title: {
-      type: String,
+      type: String
     },
     text: {
       type: String
-    },
+    }
   }
 }
 </script>

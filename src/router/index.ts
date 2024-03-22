@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import EditNoteView from '../views/EditNoteView.vue'
 import NotesView from '@/views/NotesView.vue'
+import SettingsView from '@/views/SettingsView.vue'
+import ImportNotesView from '@/views/ImportNotesView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +23,16 @@ const router = createRouter({
       name: 'notes',
       component: NotesView,
       props: true
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: SettingsView
+    },
+    {
+      path: '/import',
+      name: 'import',
+      component: ImportNotesView
     }
   ]
 })
