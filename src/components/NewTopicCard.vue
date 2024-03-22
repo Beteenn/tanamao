@@ -20,12 +20,13 @@ export default {
   methods: {
     addNewTopic() {
       if (this.topicName == '') {
-        toast.error('Digite um nome para o Tópico.');
-        return;
+        toast.error('Digite um nome para o Tópico.')
+        return
       }
 
       let topicsStore = useTopicsStore()
       topicsStore.addTopic(this.topicName)
+      toast.success('Tópico Criado!')
       this.$emit('toggle-visibility')
     },
 

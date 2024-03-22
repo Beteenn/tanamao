@@ -19,7 +19,7 @@ defineProps<{
   background-color: #8000ff;
   border: 0.15rem solid #5f02bd;
   font-size: 1.2rem;
-  height: 7vh;
+  min-height: 7vh;
   border-radius: 0.3rem;
   flex-basis: 100%;
 }
