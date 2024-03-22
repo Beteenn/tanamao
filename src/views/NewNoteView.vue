@@ -45,18 +45,29 @@ export default {
 }
 
 </script>
+
 <template>
     <main>
         <HeaderApp :showBackButton="true"/>
 
-        <div class="row">
-            <input class="input" v-model="noteTitle" />
-        </div>
+        <div class="note-body">
+            <div class="row">
+                <input class="input" v-model="noteTitle" />
+            </div>
 
-        <div class="row">
-            <textarea class="text-area" type="text" v-model="noteText"></textarea>
+            <div class="row">
+                <textarea class="text-area" type="text" v-model="noteText"></textarea>
+            </div>
         </div>
 
         <PrimaryButton text="Nova Nota" @click="addTopic()" />
     </main>
 </template>
+
+<style>
+
+.note-body {
+    height: 77vh;
+}
+
+</style>
