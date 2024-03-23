@@ -4,6 +4,7 @@ import NoteCard from '@/components/NoteCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import type Note from '@/interfaces/Note'
 import { useNoteStore } from '@/stores/noteStore'
+import router from '@/router'
 
 export default {
   components: {
@@ -14,15 +15,17 @@ export default {
 
   data() {
     return {
-      notes: [] as Note[]
+      notes: [] as Note[],
+      router: router,
+      topicId: ''
     }
   },
 
   mounted() {
     let notesStore = useNoteStore()
 
-    let topicId = this.$route.params.topicId.toString()
-    this.notes = notesStore.getNotesByParentId(topicId)
+    this.topicId = this.$route.params.topicId.toString()
+    this.notes = notesStore.getNotesByParentId(this.topicId)
   }
 }
 </script>
@@ -42,7 +45,7 @@ export default {
       />
     </div>
 
-    <PrimaryButton text="Adicionar Nota" />
+    <PrimaryButton text="Adicionar Nota" @click="router.push(`/note/new/${topicId}`)" />
   </main>
 </template>
 
