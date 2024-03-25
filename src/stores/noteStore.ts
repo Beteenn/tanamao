@@ -41,6 +41,20 @@ export const useNoteStore = defineStore('notes', {
 
     getNotesByParentId(parentId: string): Note[] {
       return this.notes.filter((n: Note) => n.parentId == parentId)
+    },
+
+    updateNote(noteUpdated: Note) {
+      var note = this.notes.find(x => x.id == noteUpdated.id)
+      console.log(noteUpdated)
+      console.log(note)
+      note.title = noteUpdated.title
+      note.text = noteUpdated.text
+
+      this.saveNotes()
+    },
+
+    getNoteById(id: string): Note {
+      return this.notes.find(x => x.id == id)
     }
   }
 })
