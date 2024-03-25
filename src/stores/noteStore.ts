@@ -45,8 +45,6 @@ export const useNoteStore = defineStore('notes', {
 
     updateNote(noteUpdated: Note) {
       var note = this.notes.find(x => x.id == noteUpdated.id)
-      console.log(noteUpdated)
-      console.log(note)
       note.title = noteUpdated.title
       note.text = noteUpdated.text
 
