@@ -5,6 +5,7 @@ import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import type Note from '@/interfaces/Note'
 import { useNoteStore } from '@/stores/noteStore'
 import router from '@/router'
+import { toast } from 'vue3-toastify'
 
 export default {
   components: {
@@ -40,6 +41,7 @@ export default {
       <NoteCard
         v-bind:key="note.title"
         v-for="note in notes"
+        :id="note.id"
         :title="note.title"
         :text="note.text"
       />

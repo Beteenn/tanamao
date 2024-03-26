@@ -15,7 +15,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/note/edit',
+      path: '/note/edit/:noteId',
       name: 'edit-note',
       component: EditNoteView
     },
