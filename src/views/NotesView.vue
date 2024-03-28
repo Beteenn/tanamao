@@ -6,12 +6,14 @@ import type Note from '@/interfaces/Note'
 import { useNoteStore } from '@/stores/noteStore'
 import router from '@/router'
 import { toast } from 'vue3-toastify'
+import draggable from 'vuedraggable'
 
 export default {
   components: {
     PrimaryButton,
     HeaderApp,
-    NoteCard
+    NoteCard,
+    draggable
   },
 
   data() {
@@ -19,6 +21,12 @@ export default {
       notes: [] as Note[],
       router: router,
       topicId: ''
+    }
+  },
+
+  methods: {
+    onDragEnd(event: DragEvent) {
+      useNoteStore().setNotes(this.notes)
     }
   },
 
@@ -38,13 +46,16 @@ export default {
     <div class="notes-list">
       <p class="empty-list-warning" v-if="notes.length < 1">Ainda não existem Notas</p>
 
-      <NoteCard
-        v-bind:key="note.title"
-        v-for="note in notes"
-        :id="note.id"
-        :title="note.title"
-        :text="note.text"
-      />
+      <draggable v-model="notes" @end="onDragEnd">
+        <template #item="{ element: note }">
+          <NoteCard
+            v-bind:key="note.title"
+            :id="note.id"
+            :title="note.title"
+            :text="note.text"
+          />
+        </template>
+      </draggable>
     </div>
 
     <PrimaryButton text="Adicionar Nota" @click="router.push(`/note/new/${topicId}`)" />
