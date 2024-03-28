@@ -6,13 +6,15 @@ import type Topic from '@/interfaces/Topic'
 import NewTopicCard from '@/components/NewTopicCard.vue'
 import HeaderApp from '@/components/HeaderApp.vue'
 import { useTopicsStore } from '@/stores/topicStore'
+import draggable from 'vuedraggable'
 
 export default {
   components: {
     TopicCard,
     PrimaryButton,
     NewTopicCard,
-    HeaderApp
+    HeaderApp,
+    draggable
   },
 
   data() {
@@ -30,6 +32,10 @@ export default {
 
     handleModal() {
       this.showTopicCard = false
+    },
+
+    onDragEnd(event: DragEvent) {
+      useTopicsStore().setTopics(this.topics)
     }
   },
 
@@ -47,12 +53,15 @@ export default {
     <div class="topics-list">
       <p class="empty-list-warning" v-if="topics.length < 1">Ainda não existem Tópicos</p>
 
-      <TopicCard
-        v-bind:key="topic.id"
-        v-for="topic in topics"
-        :name="topic.name"
-        @click="router.push(`/notes/${topic.id}`)"
-      />
+      <draggable v-model="topics" @end="onDragEnd">
+        <template #item="{ element: topic }">
+          <TopicCard
+            v-bind:key="topic.id"
+            :name="topic.name"
+            @click="router.push(`/notes/${topic.id}`)"
+          />
+        </template>
+      </draggable>
     </div>
 
     <div class="new-topic" v-if="showTopicCard">
