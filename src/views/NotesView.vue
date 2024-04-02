@@ -48,12 +48,7 @@ export default {
 
       <draggable v-model="notes" @end="onDragEnd">
         <template #item="{ element: note }">
-          <NoteCard
-            v-bind:key="note.title"
-            :id="note.id"
-            :title="note.title"
-            :text="note.text"
-          />
+          <NoteCard v-bind:key="note.title" :id="note.id" :title="note.title" :text="note.text" />
         </template>
       </draggable>
     </div>

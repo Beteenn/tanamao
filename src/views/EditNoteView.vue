@@ -1,15 +1,15 @@
 <script lang="ts">
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import HeaderApp from '@/components/HeaderApp.vue'
-import router from '@/router';
+import router from '@/router'
 import { toast, type ToastOptions } from 'vue3-toastify'
 import { useNoteStore } from '@/stores/noteStore'
-import type Note from '@/interfaces/Note';
+import type Note from '@/interfaces/Note'
 
 export default {
   components: {
-      HeaderApp,
-      PrimaryButton
+    HeaderApp,
+    PrimaryButton
   },
   data() {
     return {
@@ -27,12 +27,12 @@ export default {
     editTopic() {
       if (this.note.title == '') {
         toast.error('Digite o título da nota.')
-        return;
+        return
       }
 
       if (this.note.text == '') {
         toast.error('Digite o texto da nota.')
-        return;
+        return
       }
 
       useNoteStore().updateNote(this.note)
@@ -50,7 +50,7 @@ export default {
 
 <template>
   <main>
-    <HeaderApp :showBackButton="true"/>
+    <HeaderApp :showBackButton="true" />
 
     <div class="note-body">
       <div class="row">
@@ -62,14 +62,12 @@ export default {
       </div>
     </div>
 
-    <PrimaryButton text="Atualizar Nota" @click="editTopic()"/>
+    <PrimaryButton text="Atualizar Nota" @click="editTopic()" />
   </main>
 </template>
 
 <style>
-
 .note-body {
   height: 77vh;
 }
-
 </style>
