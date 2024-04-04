@@ -5,7 +5,7 @@ import router from '@/router'
 import { useNoteStore } from '@/stores/noteStore'
 
 export default {
-  emits: ['changed-list'],
+  emits: ['delete-note'],
   
   methods: {
     copyToClipBoard() {
@@ -13,19 +13,8 @@ export default {
       toast.success('Nota copiada!')
     },
 
-    deleteNote() {
-      this.snackbar = true
-      useNoteStore().deleteNote(this.id!)
-
-      this.$emit('changed-list')
-    },
-
-    undoDeleteNote() {
-      this.snackbar = false
-      useNoteStore().undoDeletedNote()
-
-      toast.info('Nota Recuperada!')
-      this.$emit('changed-list')
+    triggerEventDeleteNote() {
+      this.$emit('delete-note', this.id)
     }
   },
 
@@ -43,8 +32,7 @@ export default {
 
   data() {
     return {
-      router: router,
-      snackbar: false
+      router: router
     }
   }
 }
@@ -55,25 +43,11 @@ export default {
     <p class="title" @click="copyToClipBoard">{{ title }}</p>
     <p class="text" @click="copyToClipBoard">{{ text }}</p>
     <div class="icon-row">
-      <i class="icon-item" @click="deleteNote">delete</i>
+      <i class="icon-item" @click="triggerEventDeleteNote">delete</i>
       <i class="icon-item" @click="router.push(`/note/edit/${id}`)">edit</i>
       <i class="icon-item" @click="copyToClipBoard">copy</i>
     </div>
   </div>
-
-  <v-snackbar v-model="snackbar" :timeout="2000">
-    Nota excluida!
-
-    <template v-slot:actions>
-      <v-btn
-        color="red"
-        variant="text"
-        @click="undoDeleteNote"
-      >
-        Desfazer
-      </v-btn>
-    </template>
-  </v-snackbar>
 </template>
 
 <style scoped>
