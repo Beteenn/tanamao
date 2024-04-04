@@ -2,12 +2,30 @@
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import router from '@/router'
+import { useNoteStore } from '@/stores/noteStore'
 
 export default {
+  emits: ['changed-list'],
+  
   methods: {
     copyToClipBoard() {
       navigator.clipboard.writeText(this.text!)
       toast.success('Nota copiada!')
+    },
+
+    deleteNote() {
+      this.snackbar = true
+      useNoteStore().deleteNote(this.id!)
+
+      this.$emit('changed-list')
+    },
+
+    undoDeleteNote() {
+      this.snackbar = false
+      useNoteStore().undoDeletedNote()
+
+      toast.info('Nota Recuperada!')
+      this.$emit('changed-list')
     }
   },
 
@@ -25,7 +43,8 @@ export default {
 
   data() {
     return {
-      router: router
+      router: router,
+      snackbar: false
     }
   }
 }
@@ -36,14 +55,29 @@ export default {
     <p class="title" @click="copyToClipBoard">{{ title }}</p>
     <p class="text" @click="copyToClipBoard">{{ text }}</p>
     <div class="icon-row">
-      <i class="icon-item">delete</i>
+      <i class="icon-item" @click="deleteNote">delete</i>
       <i class="icon-item" @click="router.push(`/note/edit/${id}`)">edit</i>
       <i class="icon-item" @click="copyToClipBoard">copy</i>
     </div>
   </div>
+
+  <v-snackbar v-model="snackbar" :timeout="2000">
+    Nota excluida!
+
+    <template v-slot:actions>
+      <v-btn
+        color="red"
+        variant="text"
+        @click="undoDeleteNote"
+      >
+        Desfazer
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <style scoped>
+
 .icon-item {
   padding-left: 0.8rem;
   cursor: pointer;

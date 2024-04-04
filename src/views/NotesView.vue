@@ -5,7 +5,6 @@ import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import type Note from '@/interfaces/Note'
 import { useNoteStore } from '@/stores/noteStore'
 import router from '@/router'
-import { toast } from 'vue3-toastify'
 import draggable from 'vuedraggable'
 
 export default {
@@ -27,14 +26,18 @@ export default {
   methods: {
     onDragEnd(event: DragEvent) {
       useNoteStore().setNotes(this.notes)
+    },
+
+    getNotes() {
+      let notesStore = useNoteStore()
+
+      this.topicId = this.$route.params.topicId.toString()
+      this.notes = notesStore.getNotesByParentId(this.topicId)
     }
   },
 
   mounted() {
-    let notesStore = useNoteStore()
-
-    this.topicId = this.$route.params.topicId.toString()
-    this.notes = notesStore.getNotesByParentId(this.topicId)
+    this.getNotes()
   }
 }
 </script>
@@ -53,6 +56,7 @@ export default {
             :id="note.id"
             :title="note.title"
             :text="note.text"
+            @changed-list="getNotes"
           />
         </template>
       </draggable>
