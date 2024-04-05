@@ -2,12 +2,19 @@
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import router from '@/router'
+import { useNoteStore } from '@/stores/noteStore'
 
 export default {
+  emits: ['delete-note'],
+  
   methods: {
     copyToClipBoard() {
       navigator.clipboard.writeText(this.text!)
       toast.success('Nota copiada!')
+    },
+
+    triggerEventDeleteNote() {
+      this.$emit('delete-note', this.id)
     }
   },
 
@@ -36,7 +43,7 @@ export default {
     <p class="title" @click="copyToClipBoard">{{ title }}</p>
     <p class="text" @click="copyToClipBoard">{{ text }}</p>
     <div class="icon-row">
-      <i class="icon-item">delete</i>
+      <i class="icon-item" @click="triggerEventDeleteNote">delete</i>
       <i class="icon-item" @click="router.push(`/note/edit/${id}`)">edit</i>
       <i class="icon-item" @click="copyToClipBoard">copy</i>
     </div>
@@ -44,6 +51,7 @@ export default {
 </template>
 
 <style scoped>
+
 .icon-item {
   padding-left: 0.8rem;
   cursor: pointer;
