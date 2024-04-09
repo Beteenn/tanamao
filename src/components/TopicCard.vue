@@ -33,11 +33,11 @@ export default {
 
 <template>
   <div class="topic-card">
+    <p class="text">{{ name }}</p>
     <div class="icon-row">
       <i class="icon-item" @click="triggerEventDeleteTopic">delete</i>
       <i class="icon-item" @click="openNotes">open</i>
     </div>
-    <p class="text">{{ name }}</p>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
 .topic-card {
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-weight: bold;
   color: #cfcfcf;
@@ -55,6 +55,7 @@ export default {
   height: 7vh;
   border-radius: 0.3rem;
   margin: 1rem 0;
+  padding: 0rem 1rem;
 }
 
 .topic-card:hover {
