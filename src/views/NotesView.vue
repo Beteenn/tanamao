@@ -21,7 +21,7 @@ export default {
       notes: [] as Note[],
       router: router,
       topicId: '',
-      snackbar: false
+      showSnackbar: false
     }
   },
 
@@ -38,14 +38,14 @@ export default {
     },
 
     deleteNote(id: string) {
-      this.snackbar = true
+      this.showSnackbar = true
       useNoteStore().deleteNote(id)
 
       this.getNotes()
     },
 
     undoDeleteNote() {
-      this.snackbar = false
+      this.showSnackbar = false
       useNoteStore().undoDeletedNote()
 
       toast.info('Nota Recuperada!', { autoClose: 500 })
@@ -76,7 +76,7 @@ export default {
     <PrimaryButton text="Adicionar Nota" @click="router.push(`/note/new/${topicId}`)" />
   </main>
 
-  <v-snackbar v-model="snackbar" :timeout="2000">
+  <v-snackbar v-model="showSnackbar" :timeout="2000">
     Nota excluida!
 
     <template v-slot:actions>

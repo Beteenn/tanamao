@@ -1,11 +1,44 @@
-<script setup lang="ts">
-defineProps<{
-  name: string
-}>()
+<script lang="ts">
+import router from '@/router'
+
+export default {
+  emits: ['delete-topic'],
+
+  methods: {
+    triggerEventDeleteTopic() {
+      this.$emit('delete-topic', this.id)
+    },
+
+    openNotes() {
+      this.router.push(`/notes/${this.id}`)
+    }
+  },
+
+  props: {
+    id: {
+      type: String
+    },
+    name: {
+      type: String
+    }
+  },
+
+  data() {
+    return {
+      router: router,
+    }
+  }
+}
 </script>
 
 <template>
-  <div class="topic-card">{{ name }}</div>
+  <div class="topic-card">
+    <div class="icon-row">
+      <i class="icon-item" @click="triggerEventDeleteTopic">delete</i>
+      <i class="icon-item" @click="openNotes">open</i>
+    </div>
+    <p class="text">{{ name }}</p>
+  </div>
 </template>
 
 <style scoped>

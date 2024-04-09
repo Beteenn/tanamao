@@ -1,12 +1,12 @@
 <script lang="ts">
 import TopicCard from '@/components/TopicCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
-import router from '@/router'
 import type Topic from '@/interfaces/Topic'
 import NewTopicCard from '@/components/NewTopicCard.vue'
 import HeaderApp from '@/components/HeaderApp.vue'
 import { useTopicsStore } from '@/stores/topicStore'
 import draggable from 'vuedraggable'
+import { toast } from 'vue3-toastify'
 
 export default {
   components: {
@@ -21,7 +21,7 @@ export default {
     return {
       showTopicCard: false,
       topics: [] as Topic[],
-      router: router
+      showSnackbar: false
     }
   },
 
@@ -36,12 +36,31 @@ export default {
 
     onDragEnd(event: DragEvent) {
       useTopicsStore().setTopics(this.topics)
-    }
+    },
+
+    getTopics() {
+      let topicsStore = useTopicsStore()
+      this.topics = topicsStore.topics
+    },
+
+    deleteTopic(id: string) {
+      this.showSnackbar = true
+      useTopicsStore().deleteTopic(id)
+
+      this.getTopics()
+    },
+
+    undoDeleteTopic() {
+      this.showSnackbar = false
+      useTopicsStore().undoDeletedTopic()
+
+      toast.info('Tópico Recuperado!', { autoClose: 500 })
+      this.getTopics()
+    },
   },
 
   mounted() {
-    let topicsStore = useTopicsStore()
-    this.topics = topicsStore.topics
+    this.getTopics()
   }
 }
 </script>
@@ -57,8 +76,9 @@ export default {
         <template #item="{ element: topic }">
           <TopicCard
             v-bind:key="topic.id"
+            :id="topic.id"
             :name="topic.name"
-            @click="router.push(`/notes/${topic.id}`)"
+            @delete-topic="deleteTopic"
           />
         </template>
       </draggable>
@@ -72,6 +92,20 @@ export default {
 
     <div class="overlay" v-if="showTopicCard"></div>
   </main>
+
+  <v-snackbar v-model="showSnackbar" :timeout="2000">
+    Tópico excluido!
+
+    <template v-slot:actions>
+      <v-btn
+        color="red"
+        variant="text"
+        @click="undoDeleteTopic"
+      >
+        Desfazer
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <style scoped>
