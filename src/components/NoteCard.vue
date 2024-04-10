@@ -2,7 +2,6 @@
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import router from '@/router'
-import { useNoteStore } from '@/stores/noteStore'
 
 export default {
   emits: ['delete-note'],
@@ -51,17 +50,6 @@ export default {
 </template>
 
 <style scoped>
-
-.icon-item {
-  padding-left: 0.8rem;
-  cursor: pointer;
-}
-
-.icon-row {
-  display: flex;
-  justify-content: end;
-}
-
 .text {
   cursor: pointer;
   font-size: 1rem;

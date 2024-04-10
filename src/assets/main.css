@@ -54,3 +54,13 @@ a,
   background-color: rgba(0, 0, 0, 0.5); /* cor de fundo semi-transparente */
   z-index: 999;
 }
+
+.icon-item {
+  padding-left: 0.8rem;
+  cursor: pointer;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: end;
+}

@@ -6,6 +6,9 @@ import type Note from '@/interfaces/Note'
 
 export const useTopicsStore = defineStore('topics', {
   state() {
+    var topicsDeleted: []
+    var indexTopicDeleted: 0
+
     return { topics: JSON.parse(localStorage.getItem('topics')) || ([] as Topic[]) }
   },
 
@@ -38,6 +41,22 @@ export const useTopicsStore = defineStore('topics', {
 
     setTopics(topics: Topic[]) {
       this.topics = topics
+      this.saveTopics()
+    },
+
+    deleteTopic(id: string) {
+      var index = this.topics.findIndex(x => x.id == id)
+
+      if (index == -1)
+        return;
+
+      this.topicsDeleted = this.topics.splice(index, 1)
+      this.indexTopicDeleted = index
+      this.saveTopics()
+    },
+
+    undoDeletedTopic() {
+      this.topics.splice(this.indexTopicDeleted, 0, ...this.topicsDeleted)
       this.saveTopics()
     },
 
