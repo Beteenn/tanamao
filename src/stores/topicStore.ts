@@ -45,10 +45,9 @@ export const useTopicsStore = defineStore('topics', {
     },
 
     deleteTopic(id: string) {
-      const index = this.topics.findIndex(x => x.id == id)
+      const index = this.topics.findIndex((x) => x.id == id)
 
-      if (index == -1)
-        return;
+      if (index == -1) return
 
       this.topicsDeleted = this.topics.splice(index, 1)
       this.indexTopicDeleted = index
@@ -88,7 +87,9 @@ export const useTopicsStore = defineStore('topics', {
       const notesStore = useNoteStore()
       const notesToImport = data.notes as Note[]
 
-      notesToImport.forEach((newNote) => notesStore.addNote(newNote.title, newNote.text, newNote.parentId))
+      notesToImport.forEach((newNote) =>
+        notesStore.addNote(newNote.title, newNote.text, newNote.parentId)
+      )
     },
 
     importOverrideJson(data: any) {

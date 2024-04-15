@@ -56,7 +56,7 @@ export default {
 
       toast.info('Tópico Recuperado!', { autoClose: 500 })
       this.getTopics()
-    },
+    }
   },
 
   mounted() {
@@ -97,13 +97,7 @@ export default {
     Tópico excluido!
 
     <template v-slot:actions>
-      <v-btn
-        color="red"
-        variant="text"
-        @click="undoDeleteTopic"
-      >
-        Desfazer
-      </v-btn>
+      <v-btn color="red" variant="text" @click="undoDeleteTopic"> Desfazer </v-btn>
     </template>
   </v-snackbar>
 </template>

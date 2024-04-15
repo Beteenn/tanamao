@@ -25,7 +25,7 @@ export default {
 
   data() {
     return {
-      router: router,
+      router: router
     }
   }
 }

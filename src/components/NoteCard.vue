@@ -5,7 +5,7 @@ import router from '@/router'
 
 export default {
   emits: ['delete-note'],
-  
+
   methods: {
     copyToClipBoard() {
       navigator.clipboard.writeText(this.text!)

@@ -68,7 +68,13 @@ export default {
 
       <draggable v-model="notes" @end="onDragEnd">
         <template #item="{ element: note }">
-          <NoteCard v-bind:key="note.title" :id="note.id" :title="note.title" :text="note.text" @delete-note="deleteNote" />
+          <NoteCard
+            v-bind:key="note.title"
+            :id="note.id"
+            :title="note.title"
+            :text="note.text"
+            @delete-note="deleteNote"
+          />
         </template>
       </draggable>
     </div>
@@ -80,13 +86,7 @@ export default {
     Nota excluida!
 
     <template v-slot:actions>
-      <v-btn
-        color="red"
-        variant="text"
-        @click="undoDeleteNote"
-      >
-        Desfazer
-      </v-btn>
+      <v-btn color="red" variant="text" @click="undoDeleteNote"> Desfazer </v-btn>
     </template>
   </v-snackbar>
 </template>
