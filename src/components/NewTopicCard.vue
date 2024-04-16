@@ -1,6 +1,6 @@
 <script lang="ts">
-import CancelButton from '@/components/button/CancelButton.vue'
-import ConfirmButton from '@/components/button/ConfirmButton.vue'
+import CancelButton from '@/components/shared/buttons/CancelButton.vue'
+import ConfirmButton from '@/components/shared/buttons/ConfirmButton.vue'
 import router from '@/router'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'

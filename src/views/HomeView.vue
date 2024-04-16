@@ -1,6 +1,6 @@
 <script lang="ts">
 import TopicCard from '@/components/TopicCard.vue'
-import PrimaryButton from '@/components/button/PrimaryButton.vue'
+import PrimaryButton from '@/components/shared/buttons/PrimaryButton.vue'
 import type Topic from '@/interfaces/Topic'
 import NewTopicCard from '@/components/NewTopicCard.vue'
 import HeaderApp from '@/components/shared/HeaderApp.vue'
