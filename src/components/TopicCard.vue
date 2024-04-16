@@ -37,11 +37,11 @@ export default {
 </script>
 
 <template>
-  <div class="topic-card">
+  <div class="topic-card" @click="openNotes">
     <p class="text">{{ name }}</p>
     <div class="icon-row">
-      <Icon @click="openNotes" name="trash"/>
-      <Icon @click="openNotes" name="edit"/>
+      <Icon name="trash"/>
+      <Icon name="edit"/>
     </div>
   </div>
 </template>
