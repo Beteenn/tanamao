@@ -4,6 +4,7 @@ import TrashIcon from '@/components/shared/icons/TrashIcon.vue';
 import EditIcon from '@/components/shared/icons/EditIcon.vue'
 import CopyIcon from '@/components/shared/icons/CopyIcon.vue'
 import BackIcon from '@/components/shared/icons/BackIcon.vue'
+import AddIcon from '@/components/shared/icons/AddIcon.vue'
 
 const props = defineProps({
   name: {
@@ -17,7 +18,8 @@ const iconLookup: Record<string, any> = {
   trash: TrashIcon,
   edit: EditIcon,
   copy: CopyIcon,
-  back: BackIcon
+  back: BackIcon,
+  add: AddIcon
 };
 
 const iconComponent = iconLookup[props.name];
