@@ -1,5 +1,6 @@
 <script lang="ts">
 import router from '@/router'
+import Icon from '@/components/shared/icons/Icon.vue'
 
 export default {
   emits: ['delete-topic'],
@@ -27,6 +28,10 @@ export default {
     return {
       router: router
     }
+  },
+
+  components: {
+    Icon
   }
 }
 </script>
@@ -35,8 +40,8 @@ export default {
   <div class="topic-card">
     <p class="text">{{ name }}</p>
     <div class="icon-row">
-      <i class="icon-item" @click="triggerEventDeleteTopic">delete</i>
-      <i class="icon-item" @click="openNotes">open</i>
+      <Icon @click="openNotes" name="trash"/>
+      <Icon @click="openNotes" name="edit"/>
     </div>
   </div>
 </template>
@@ -65,3 +70,4 @@ export default {
   background-color: #888888;
 }
 </style>
+

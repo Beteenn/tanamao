@@ -1,5 +1,7 @@
 <script lang="ts">
 import router from '@/router'
+import Icon from '@/components/shared/icons/Icon.vue'
+
 
 export default {
   methods: {
@@ -17,6 +19,10 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+
+  components: {
+    Icon
   }
 }
 </script>
@@ -25,14 +31,14 @@ export default {
   <header>
     <div class="container">
       <span v-if="showBackButton">
-        <i class="icon-item" @click="goBack">back</i>
+        <Icon name="back" @click="goBack"/>
       </span>
       <span v-if="!showBackButton">
         <i class="icon-item"></i>
       </span>
       <span><h1 class="title">TaNaMao</h1></span>
       <span class="icon-settings">
-        <i class="icon-item" @click="goToSettings">Settings</i>
+        <Icon name="settings" @click="goToSettings"/>
       </span>
     </div>
   </header>
