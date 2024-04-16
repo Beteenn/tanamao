@@ -1,5 +1,5 @@
 <script lang="ts">
-import HeaderApp from '@/components/HeaderApp.vue'
+import HeaderApp from '@/components/shared/HeaderApp.vue'
 import NoteCard from '@/components/NoteCard.vue'
 import PrimaryButton from '@/components/button/PrimaryButton.vue'
 import type Note from '@/interfaces/Note'
