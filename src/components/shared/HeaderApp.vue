@@ -2,7 +2,6 @@
 import router from '@/router'
 import Icon from '@/components/shared/icons/Icon.vue'
 
-
 export default {
   methods: {
     goBack() {
@@ -31,14 +30,14 @@ export default {
   <header>
     <div class="container">
       <span v-if="showBackButton">
-        <Icon name="back" @click="goBack"/>
+        <Icon name="back" @click="goBack" />
       </span>
       <span v-if="!showBackButton">
         <i class="icon-item"></i>
       </span>
       <span><h1 class="title">TaNaMao</h1></span>
       <span class="icon-settings">
-        <Icon name="settings" @click="goToSettings"/>
+        <Icon name="settings" @click="goToSettings" />
       </span>
     </div>
   </header>

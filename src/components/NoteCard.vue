@@ -47,9 +47,9 @@ export default {
     <p class="title" @click="copyToClipBoard">{{ title }}</p>
     <p class="text" @click="copyToClipBoard">{{ text }}</p>
     <div class="icon-row">
-      <Icon @click="triggerEventDeleteNote" name="trash"/>
-      <Icon @click="router.push(`/note/edit/${id}`)" name="edit"/>
-      <Icon @click="copyToClipBoard" name="copy"/>
+      <Icon @click="triggerEventDeleteNote" name="trash" />
+      <Icon @click="router.push(`/note/edit/${id}`)" name="edit" />
+      <Icon @click="copyToClipBoard" name="copy" />
     </div>
   </div>
 </template>

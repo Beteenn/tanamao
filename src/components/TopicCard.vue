@@ -40,8 +40,8 @@ export default {
   <div class="topic-card" @click="openNotes">
     <p class="text">{{ name }}</p>
     <div class="icon-row">
-      <Icon name="trash"/>
-      <Icon name="edit"/>
+      <Icon name="trash" />
+      <Icon name="edit" />
     </div>
   </div>
 </template>
@@ -70,4 +70,3 @@ export default {
   background-color: #888888;
 }
 </style>
-

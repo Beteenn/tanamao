@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Icon from '@/components/shared/icons/Icon.vue';
+import Icon from '@/components/shared/icons/Icon.vue'
 
 defineProps<{
   text: string
@@ -7,9 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="primary-button">
-      <Icon class="icon" name="add"/> {{ text }}
-  </div>
+  <div class="primary-button"><Icon class="icon" name="add" /> {{ text }}</div>
 </template>
 
 <style scoped>
