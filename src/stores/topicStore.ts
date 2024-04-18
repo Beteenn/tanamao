@@ -6,8 +6,8 @@ import type Note from '@/interfaces/Note'
 
 export const useTopicsStore = defineStore('topics', {
   state() {
-    var topicsDeleted: []
-    var indexTopicDeleted: 0
+    let topicsDeleted: []
+    let indexTopicDeleted: 0
 
     return { topics: JSON.parse(localStorage.getItem('topics')) || ([] as Topic[]) }
   },
@@ -45,10 +45,9 @@ export const useTopicsStore = defineStore('topics', {
     },
 
     deleteTopic(id: string) {
-      var index = this.topics.findIndex(x => x.id == id)
+      const index = this.topics.findIndex((x) => x.id == id)
 
-      if (index == -1)
-        return;
+      if (index == -1) return
 
       this.topicsDeleted = this.topics.splice(index, 1)
       this.indexTopicDeleted = index
@@ -88,7 +87,9 @@ export const useTopicsStore = defineStore('topics', {
       const notesStore = useNoteStore()
       const notesToImport = data.notes as Note[]
 
-      notesToImport.forEach((newNote) => notesStore.addNote(newNote.title, newNote.text, newNote.parentId))
+      notesToImport.forEach((newNote) =>
+        notesStore.addNote(newNote.title, newNote.text, newNote.parentId)
+      )
     },
 
     importOverrideJson(data: any) {

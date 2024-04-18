@@ -1,5 +1,5 @@
 <script lang="ts">
-import HeaderApp from '@/components/HeaderApp.vue'
+import HeaderApp from '@/components/shared/HeaderApp.vue'
 import { useTopicsStore } from '@/stores/topicStore'
 import router from '@/router'
 import { toast, type ToastOptions } from 'vue3-toastify'

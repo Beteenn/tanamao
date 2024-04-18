@@ -1,7 +1,7 @@
 <script lang="ts">
-import HeaderApp from '@/components/HeaderApp.vue'
+import HeaderApp from '@/components/shared/HeaderApp.vue'
 import NoteCard from '@/components/NoteCard.vue'
-import PrimaryButton from '@/components/button/PrimaryButton.vue'
+import PrimaryButton from '@/components/shared/buttons/PrimaryButton.vue'
 import type Note from '@/interfaces/Note'
 import { useNoteStore } from '@/stores/noteStore'
 import router from '@/router'
@@ -68,7 +68,13 @@ export default {
 
       <draggable v-model="notes" @end="onDragEnd">
         <template #item="{ element: note }">
-          <NoteCard v-bind:key="note.title" :id="note.id" :title="note.title" :text="note.text" @delete-note="deleteNote" />
+          <NoteCard
+            v-bind:key="note.title"
+            :id="note.id"
+            :title="note.title"
+            :text="note.text"
+            @delete-note="deleteNote"
+          />
         </template>
       </draggable>
     </div>
@@ -80,13 +86,7 @@ export default {
     Nota excluida!
 
     <template v-slot:actions>
-      <v-btn
-        color="red"
-        variant="text"
-        @click="undoDeleteNote"
-      >
-        Desfazer
-      </v-btn>
+      <v-btn color="red" variant="text" @click="undoDeleteNote"> Desfazer </v-btn>
     </template>
   </v-snackbar>
 </template>

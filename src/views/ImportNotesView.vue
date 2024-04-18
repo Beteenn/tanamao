@@ -1,6 +1,6 @@
 <script lang="ts">
-import HeaderApp from '@/components/HeaderApp.vue'
-import PrimaryButton from '@/components/button/PrimaryButton.vue'
+import HeaderApp from '@/components/shared/HeaderApp.vue'
+import PrimaryButton from '@/components/shared/buttons/PrimaryButton.vue'
 import { useTopicsStore } from '@/stores/topicStore'
 import { toast, type ToastOptions } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
