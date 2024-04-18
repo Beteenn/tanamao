@@ -1,7 +1,7 @@
 <script lang="ts">
-import HeaderApp from '@/components/HeaderApp.vue'
+import HeaderApp from '@/components/shared/HeaderApp.vue'
 import NoteCard from '@/components/NoteCard.vue'
-import PrimaryButton from '@/components/button/PrimaryButton.vue'
+import PrimaryButton from '@/components/shared/buttons/PrimaryButton.vue'
 import type Note from '@/interfaces/Note'
 import { useNoteStore } from '@/stores/noteStore'
 import router from '@/router'

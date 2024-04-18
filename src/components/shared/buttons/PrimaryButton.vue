@@ -1,14 +1,20 @@
 <script setup lang="ts">
+import Icon from '@/components/shared/icons/Icon.vue'
+
 defineProps<{
   text: string
 }>()
 </script>
 
 <template>
-  <div class="primary-button">{{ text }}</div>
+  <div class="primary-button"><Icon class="icon" name="add" /> {{ text }}</div>
 </template>
 
 <style scoped>
+.icon {
+  margin-right: 1rem;
+}
+
 .primary-button {
   cursor: pointer;
   display: flex;
