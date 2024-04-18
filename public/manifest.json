@@ -1,0 +1,10 @@
+{
+    "name": "TaNaMao",
+    "version": "0.1",
+    "description": "Notas de acesso rápido.",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": "logo_tanamao.png",
+        "default_popup": "index.html"
+    }
+}
