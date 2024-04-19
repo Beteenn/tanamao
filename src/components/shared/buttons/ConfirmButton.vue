@@ -11,17 +11,16 @@ defineProps<{
 <style scoped>
 .confirm-button {
   cursor: pointer;
-  color: #000;
+  color: var(--color-background);
   display: flex;
-  width: 4.2rem;
-  height: 2rem;
+  width: 10.5rem;
+  height: 3rem;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  background-color: #ffff00;
-  border: 0.15rem solid #ffff00;
+  background-color: var(--color-primary-items);
   font-size: 1.2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   margin: 0.1rem;
 }
 </style>
