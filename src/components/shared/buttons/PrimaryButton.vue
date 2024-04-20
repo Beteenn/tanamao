@@ -18,12 +18,12 @@ defineProps<{
 .primary-button {
   cursor: pointer;
   display: flex;
-  color: white;
+  color: var(--color-heading);
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  background-color: #8000ff;
-  border: 0.15rem solid #5f02bd;
+  background-color: var(--color-primary-items);
+  border: 0.15rem solid var(--color-border-primary-items);
   font-size: 1.2rem;
   min-height: 7vh;
   border-radius: 0.3rem;
