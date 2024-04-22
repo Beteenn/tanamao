@@ -61,7 +61,7 @@ export default {
 
 <template>
   <main>
-    <HeaderApp :showBackButton="true" />
+    <HeaderApp :showBackButton="true" title-page="Notas" />
 
     <div class="notes-list">
       <p class="empty-list-warning" v-if="notes.length < 1">Ainda não existem Notas</p>

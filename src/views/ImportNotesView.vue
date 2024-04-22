@@ -78,7 +78,7 @@ export default {
 </script>
 
 <template>
-  <HeaderApp :showBackButton="true" />
+  <HeaderApp :showBackButton="true" titlePage="Importar arquivos" />
 
   <div class="container">
     <label for="fileInput" class="file-input-label">

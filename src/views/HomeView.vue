@@ -67,7 +67,7 @@ export default {
 
 <template>
   <main>
-    <HeaderApp />
+    <HeaderApp title-page="Tópicos" />
 
     <div class="topics-list">
       <p class="empty-list-warning" v-if="topics.length < 1">Ainda não existem Tópicos</p>

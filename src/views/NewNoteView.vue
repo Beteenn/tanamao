@@ -51,7 +51,7 @@ export default {
 
 <template>
   <main>
-    <HeaderApp :showBackButton="true" />
+    <HeaderApp :showBackButton="true" titlePage="Nova nota" />
 
     <div class="note-body">
       <div class="row">

@@ -7,6 +7,7 @@ import BackIcon from '@/components/shared/icons/BackIcon.vue'
 import AddIcon from '@/components/shared/icons/AddIcon.vue'
 import UploadIcon from '@/components/shared/icons/UploadIcon.vue'
 import DownloadIcon from '@/components/shared/icons/DownloadIcon.vue'
+import ApplicationIcon from '@/components/shared/icons/ApplicationIcon.vue'
 
 const props = defineProps({
   name: {
@@ -23,7 +24,8 @@ const iconLookup: Record<string, any> = {
   back: BackIcon,
   add: AddIcon,
   upload: UploadIcon,
-  download: DownloadIcon
+  download: DownloadIcon,
+  application: ApplicationIcon
 }
 
 const iconComponent = iconLookup[props.name]
