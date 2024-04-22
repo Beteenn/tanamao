@@ -72,7 +72,7 @@ body {
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family:
+  font-family: 
     Inter,
     -apple-system,
     BlinkMacSystemFont,
@@ -85,7 +85,7 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -115,7 +115,7 @@ body {
   flex-basis: 100%;
   display: flex;
   padding: 0 1rem;
-  font-weight: bold;
+  font-weight: normal;
   color: #cfcfcf;
   background-color: #292929;
   border: 0.15rem solid #a5a5a5;

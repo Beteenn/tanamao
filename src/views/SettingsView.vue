@@ -34,7 +34,7 @@ export default {
 
 <template>
   <main>
-    <HeaderApp :showBackButton="true" />
+    <HeaderApp :showBackButton="true" title-page="Configurações" />
 
     <div class="setting-card" @click="goToImport">Importar Topicos e Notas</div>
     <div class="setting-card" @click="exportJson">Exportar Topicos e Notas</div>
