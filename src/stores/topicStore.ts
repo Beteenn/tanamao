@@ -6,11 +6,11 @@ import type Note from '@/interfaces/Note'
 
 export const useTopicsStore = defineStore('topics', {
   state() {
-    let topicsDeleted: Topic[] = []
-    let indexTopicDeleted: number = 0
+    const topicsDeleted: Topic[] = []
+    const indexTopicDeleted: number = 0
 
-    var topicsLocalStorage = localStorage.getItem('topics')
-    var initialTopics = topicsLocalStorage ? JSON.parse(topicsLocalStorage) : [] as Topic[]
+    const topicsLocalStorage = localStorage.getItem('topics')
+    const initialTopics = topicsLocalStorage ? JSON.parse(topicsLocalStorage) : ([] as Topic[])
 
     return {
       topics: initialTopics,

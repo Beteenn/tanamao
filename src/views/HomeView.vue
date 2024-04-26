@@ -34,7 +34,7 @@ export default {
       this.showTopicCard = false
     },
 
-    onDragEnd(event: DragEvent) {
+    onDragEnd() {
       useTopicsStore().setTopics(this.topics)
     },
 

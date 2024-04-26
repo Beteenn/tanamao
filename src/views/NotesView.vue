@@ -26,7 +26,7 @@ export default {
   },
 
   methods: {
-    onDragEnd(event: DragEvent) {
+    onDragEnd() {
       useNoteStore().setNotes(this.notes)
     },
 

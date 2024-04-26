@@ -19,7 +19,7 @@ export default {
       default: false
     },
     titlePage: {
-      type: String 
+      type: String
     }
   },
 
@@ -49,7 +49,9 @@ export default {
       <span v-if="!showBackButton">
         <i class="icon-item"></i>
       </span>
-      <span class="title-page"><p>{{ titlePage }}</p></span>
+      <span class="title-page"
+        ><p>{{ titlePage }}</p></span
+      >
     </div>
   </header>
 </template>

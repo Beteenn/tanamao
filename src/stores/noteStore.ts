@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const useNoteStore = defineStore('notes', {
   state() {
-    let notesDeleted: Note[] = []
-    let indexNoteDeleted: number = 0
+    const notesDeleted: Note[] = []
+    const indexNoteDeleted: number = 0
 
-    let notesLocalStorage = localStorage.getItem('notes')
-    let initialNotes = notesLocalStorage ? JSON.parse(notesLocalStorage) : [] as Note[]
+    const notesLocalStorage = localStorage.getItem('notes')
+    const initialNotes = notesLocalStorage ? JSON.parse(notesLocalStorage) : ([] as Note[])
 
     return {
       notes: initialNotes,
