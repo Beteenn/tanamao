@@ -4,11 +4,16 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const useNoteStore = defineStore('notes', {
   state() {
-    let notesDeleted: []
-    let indexNoteDeleted: 0
+    let notesDeleted: Note[] = []
+    let indexNoteDeleted: number = 0
+
+    let notesLocalStorage = localStorage.getItem('notes')
+    let initialNotes = notesLocalStorage ? JSON.parse(notesLocalStorage) : [] as Note[]
 
     return {
-      notes: JSON.parse(localStorage.getItem('notes')) || ([] as Note[])
+      notes: initialNotes,
+      notesDeleted,
+      indexNoteDeleted
     }
   },
 
@@ -49,7 +54,7 @@ export const useNoteStore = defineStore('notes', {
     },
 
     updateNote(noteUpdated: Note) {
-      const note = this.notes.find((x) => x.id == noteUpdated.id)
+      const note = this.notes.find((x: Note) => x.id == noteUpdated.id)
       note.title = noteUpdated.title
       note.text = noteUpdated.text
 
@@ -57,11 +62,11 @@ export const useNoteStore = defineStore('notes', {
     },
 
     getNoteById(id: string): Note {
-      return this.notes.find((x) => x.id == id)
+      return this.notes.find((x: Note) => x.id == id)
     },
 
     deleteNote(id: string) {
-      const index = this.notes.findIndex((x) => x.id == id)
+      const index = this.notes.findIndex((x: Note) => x.id == id)
 
       if (index == -1) return
 
