@@ -1,15 +1,17 @@
 <script lang="ts">
-import PrimaryButton from '@/components/shared/buttons/PrimaryButton.vue'
 import HeaderApp from '@/components/shared/HeaderApp.vue'
 import router from '@/router'
 import { toast, type ToastOptions } from 'vue3-toastify'
 import { useNoteStore } from '@/stores/noteStore'
 import type Note from '@/interfaces/Note'
+import ConfirmButton from '@/components/shared/buttons/ConfirmButton.vue'
+import CancelButton from '@/components/shared/buttons/CancelButton.vue'
 
 export default {
   components: {
     HeaderApp,
-    PrimaryButton
+    ConfirmButton,
+    CancelButton
   },
   data() {
     return {
@@ -43,6 +45,10 @@ export default {
       } as ToastOptions
 
       toast.success('Nota Atualizada!', toastOptions)
+    },
+
+    goBack() {
+      router.back()
     }
   }
 }
@@ -53,16 +59,21 @@ export default {
     <HeaderApp :showBackButton="true" title-page="Editar Nota" />
 
     <div class="note-body">
+      <p class="label-text">Titulo:</p>
       <div class="row">
         <input class="input" type="text" v-model="note.title" />
       </div>
 
+      <p class="label-text">Descrição:</p>
       <div class="row">
-        <textarea class="text-area" type="text" v-model="note.text"></textarea>
+        <textarea class="text-area" type="text" v-model="note.text" ></textarea>
+      </div>
+
+      <div class="buttons-row">
+        <ConfirmButton text="Atualizar Nota" @click="editTopic()" />
+        <CancelButton text="Cancelar" @click="goBack"/>
       </div>
     </div>
-
-    <PrimaryButton text="Atualizar Nota" @click="editTopic()" />
   </main>
 </template>
 

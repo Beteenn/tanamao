@@ -118,11 +118,10 @@ body {
   font-weight: normal;
   color: #cfcfcf;
   background-color: #292929;
-  border: 0.15rem solid #a5a5a5;
   font-size: 1.2rem;
   height: 7vh;
   border-radius: 0.3rem;
-  margin: 1rem 0;
+  margin: 0.6rem 0;
 }
 
 .text-area {
@@ -131,9 +130,20 @@ body {
   padding: 0.5rem 1rem;
   color: #cfcfcf;
   background-color: #292929;
-  border: 0.15rem solid #a5a5a5;
   font-size: 1rem;
-  margin: 1rem 0;
-  height: 40vh;
+  margin: 0.5rem 0;
+  height: 20vh;
   border-radius: 0.3rem;
+}
+
+.label-text {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 1.2rem;
+}
+
+.buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }

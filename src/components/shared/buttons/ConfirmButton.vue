@@ -1,23 +1,37 @@
-<script setup lang="ts">
-defineProps<{
-  text: string
-}>()
+<script lang="ts">
+export default {
+  props: {
+    text: {
+      type: String
+    },
+    isModalButton: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data() {
+    return {
+      widthObject: {
+        width: this.isModalButton ? '10.5rem' : '12rem'
+      }
+    }
+  }
+}
 </script>
 
 <template>
-  <div class="confirm-button">{{ text }}</div>
+  <div class="confirm-button" v-bind:style="widthObject">{{ text }}</div>
 </template>
 
 <style scoped>
 .confirm-button {
   cursor: pointer;
-  color: var(--color-background);
   display: flex;
-  width: 10.5rem;
   height: 3rem;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+
   background-color: var(--color-primary-items);
   font-size: 1.2rem;
   border-radius: 0.3rem;
