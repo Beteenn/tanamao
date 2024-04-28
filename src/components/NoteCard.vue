@@ -2,7 +2,7 @@
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import router from '@/router'
-import Icon from './shared/icons/Icon.vue'
+import BaseIcon from './shared/icons/BaseIcon.vue'
 
 export default {
   emits: ['delete-note'],
@@ -37,7 +37,7 @@ export default {
   },
 
   components: {
-    Icon
+    BaseIcon
   }
 }
 </script>
@@ -47,9 +47,9 @@ export default {
     <div class="title-row">
       <p class="title" @click="copyToClipBoard">{{ title }}</p>
       <div class="icon-row">
-        <Icon @click="triggerEventDeleteNote" name="trash" />
-        <Icon @click="router.push(`/note/edit/${id}`)" name="edit" />
-        <Icon @click="copyToClipBoard" name="copy" />
+        <BaseIcon @click="triggerEventDeleteNote" name="trash" />
+        <BaseIcon @click="router.push(`/note/edit/${id}`)" name="edit" />
+        <BaseIcon @click="copyToClipBoard" name="copy" />
       </div>
     </div>
     <p class="text" @click="copyToClipBoard">{{ text }}</p>

@@ -1,6 +1,6 @@
 <script lang="ts">
 import router from '@/router'
-import Icon from '@/components/shared/icons/Icon.vue'
+import BaseIcon from '@/components/shared/icons/BaseIcon.vue'
 
 export default {
   methods: {
@@ -19,12 +19,12 @@ export default {
       default: false
     },
     titlePage: {
-      type: String 
+      type: String
     }
   },
 
   components: {
-    Icon
+    BaseIcon
   }
 }
 </script>
@@ -34,22 +34,24 @@ export default {
     <div class="container">
       <span class="header-center">
         <span class="application-icon">
-          <Icon class="icon" name="application" />
+          <BaseIcon class="icon" name="application" />
         </span>
         <h1 class="title">TaNa<span class="highlighted-title">Mão</span></h1>
       </span>
       <span class="icon-settings">
-        <Icon name="settings" @click="goToSettings" />
+        <BaseIcon name="settings" @click="goToSettings" />
       </span>
     </div>
     <div class="container-page">
       <span v-if="showBackButton">
-        <Icon name="back" @click="goBack" />
+        <BaseIcon name="back" @click="goBack" />
       </span>
       <span v-if="!showBackButton">
         <i class="icon-item"></i>
       </span>
-      <span class="title-page"><p>{{ titlePage }}</p></span>
+      <span class="title-page"
+        ><p>{{ titlePage }}</p></span
+      >
     </div>
   </header>
 </template>

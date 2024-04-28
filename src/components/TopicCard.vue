@@ -1,6 +1,6 @@
 <script lang="ts">
 import router from '@/router'
-import Icon from '@/components/shared/icons/Icon.vue'
+import BaseIcon from '@/components/shared/icons/BaseIcon.vue'
 
 export default {
   emits: ['delete-topic'],
@@ -31,7 +31,7 @@ export default {
   },
 
   components: {
-    Icon
+    BaseIcon
   }
 }
 </script>
@@ -40,8 +40,8 @@ export default {
   <div class="topic-card" @click="openNotes">
     <p class="text">{{ name }}</p>
     <div class="icon-row">
-      <Icon name="trash" />
-      <Icon name="edit" />
+      <BaseIcon name="trash" />
+      <BaseIcon name="edit" />
     </div>
   </div>
 </template>

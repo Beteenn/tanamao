@@ -60,7 +60,7 @@ export default {
   top: 25vh;
 
   border-radius: 8px;
-  border: 0.10rem solid var(--color-primary-items);
+  border: 0.1rem solid var(--color-primary-items);
   color: #cfcfcf;
   background: var(--color-background);
   z-index: 2;
@@ -81,7 +81,7 @@ export default {
   height: 5vh;
   border-radius: 0.5rem;
   font-size: 1rem;
-  border: 0.10rem solid var(--color-background-soft);
+  border: 0.1rem solid var(--color-background-soft);
 }
 
 input[type='text'] {

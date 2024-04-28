@@ -20,8 +20,8 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(207, 207, 207, 1);
 
-  --vt-c-primary-items: #5DB075;
-  --vt-c-primary-border-items: #1A1A1A;
+  --vt-c-primary-items: #5db075;
+  --vt-c-primary-border-items: #1a1a1a;
 }
 
 /* semantic color variables for this project */
@@ -72,7 +72,7 @@ body {
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family: 
+  font-family:
     Inter,
     -apple-system,
     BlinkMacSystemFont,
