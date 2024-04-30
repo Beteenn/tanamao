@@ -6,7 +6,7 @@
 
   --vt-c-black: #181818;
   --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --vt-c-black-mute: #292929;
 
   --vt-c-indigo: #2c3e50;
 
@@ -18,7 +18,7 @@
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --vt-c-text-dark-2: rgba(207, 207, 207, 1);
 
   --vt-c-primary-items: #5db075;
   --vt-c-primary-border-items: #1a1a1a;
@@ -118,11 +118,10 @@ body {
   font-weight: normal;
   color: #cfcfcf;
   background-color: #292929;
-  border: 0.15rem solid #a5a5a5;
   font-size: 1.2rem;
   height: 7vh;
   border-radius: 0.3rem;
-  margin: 1rem 0;
+  margin: 0.6rem 0;
 }
 
 .text-area {
@@ -131,9 +130,20 @@ body {
   padding: 0.5rem 1rem;
   color: #cfcfcf;
   background-color: #292929;
-  border: 0.15rem solid #a5a5a5;
   font-size: 1rem;
-  margin: 1rem 0;
-  height: 40vh;
+  margin: 0.5rem 0;
+  height: 20vh;
   border-radius: 0.3rem;
+}
+
+.label-text {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 1.2rem;
+}
+
+.buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }

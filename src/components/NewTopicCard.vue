@@ -45,8 +45,8 @@ export default {
       </header>
       <input type="text" placeholder="Titulo" v-model="topicName" class="input-text" autofocus />
       <div class="footer">
-        <ConfirmButton text="Sim" @click="addNewTopic()" />
-        <CancelButton text="Não" @click="closeModal()" />
+        <ConfirmButton text="Sim" :isModalButton=true @click="addNewTopic()" />
+        <CancelButton text="Não" :isModalButton=true @click="closeModal()" />
       </div>
     </div>
   </main>

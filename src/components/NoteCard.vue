@@ -44,13 +44,15 @@ export default {
 
 <template>
   <div class="card">
-    <p class="title" @click="copyToClipBoard">{{ title }}</p>
-    <p class="text" @click="copyToClipBoard">{{ text }}</p>
-    <div class="icon-row">
-      <BaseIcon @click="triggerEventDeleteNote" name="trash" />
-      <BaseIcon @click="router.push(`/note/edit/${id}`)" name="edit" />
-      <BaseIcon @click="copyToClipBoard" name="copy" />
+    <div class="title-row">
+      <p class="title" @click="copyToClipBoard">{{ title }}</p>
+      <div class="icon-row">
+        <BaseIcon @click="triggerEventDeleteNote" name="trash" />
+        <BaseIcon @click="router.push(`/note/edit/${id}`)" name="edit" />
+        <BaseIcon @click="copyToClipBoard" name="copy" />
+      </div>
     </div>
+    <p class="text" @click="copyToClipBoard">{{ text }}</p>
   </div>
 </template>
 
@@ -69,12 +71,18 @@ export default {
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  color: #cfcfcf;
   background-color: #292929;
-  border: 0.15rem solid #a5a5a5;
   font-size: 1.2rem;
-  padding: 1rem;
+  padding: 0.5rem 0.6rem 1rem 1.2rem;
   border-radius: 0.3rem;
   margin: 1rem 0;
+  word-wrap: break-word;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
 }
 </style>

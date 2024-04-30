@@ -1,14 +1,16 @@
 <script lang="ts">
 import HeaderApp from '@/components/shared/HeaderApp.vue'
-import PrimaryButton from '@/components/shared/buttons/PrimaryButton.vue'
 import router from '@/router'
 import { toast, type ToastOptions } from 'vue3-toastify'
 import { useNoteStore } from '@/stores/noteStore'
+import ConfirmButton from '@/components/shared/buttons/ConfirmButton.vue'
+import CancelButton from '@/components/shared/buttons/CancelButton.vue'
 
 export default {
   components: {
     HeaderApp,
-    PrimaryButton
+    ConfirmButton,
+    CancelButton
   },
 
   data() {
@@ -44,6 +46,10 @@ export default {
       } as ToastOptions
 
       toast.success('Nota Criada!', toastOptions)
+    },
+
+    goBack() {
+      router.back()
     }
   }
 }
@@ -54,16 +60,21 @@ export default {
     <HeaderApp :showBackButton="true" titlePage="Nova Nota" />
 
     <div class="note-body">
+      <p class="label-text">Título:</p>
       <div class="row">
         <input class="input" type="text" v-model="title" />
       </div>
 
+      <p class="label-text">Descrição:</p>
       <div class="row">
         <textarea class="text-area" type="text" v-model="text"></textarea>
       </div>
-    </div>
 
-    <PrimaryButton text="Nova Nota" @click="addTopic()" />
+      <div class="buttons-row">
+        <ConfirmButton text="Salvar Nota" @click="addTopic()" />
+        <CancelButton text="Cancelar" @click="goBack" />
+      </div>
+    </div>
   </main>
 </template>
 
