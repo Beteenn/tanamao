@@ -45,8 +45,8 @@ export default {
       </header>
       <input type="text" placeholder="Titulo" v-model="topicName" class="input-text" autofocus />
       <div class="footer">
-        <ConfirmButton text="Sim" :isModalButton=true @click="addNewTopic()" />
-        <CancelButton text="Não" :isModalButton=true @click="closeModal()" />
+        <ConfirmButton text="Sim" :isModalButton="true" @click="addNewTopic()" />
+        <CancelButton text="Não" :isModalButton="true" @click="closeModal()" />
       </div>
     </div>
   </main>
@@ -61,7 +61,6 @@ export default {
 
   border-radius: 8px;
   border: 0.1rem solid var(--color-primary-items);
-  color: #cfcfcf;
   background: var(--color-background);
   z-index: 2;
 }
@@ -81,7 +80,8 @@ export default {
   height: 5vh;
   border-radius: 0.5rem;
   font-size: 1rem;
-  border: 0.1rem solid var(--color-background-soft);
+  color: var(--color-text);
+  border: 0.1rem solid var(--color-background-mute);
 }
 
 input[type='text'] {

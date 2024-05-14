@@ -31,7 +31,7 @@ export default {
   height: 3rem;
   justify-content: center;
   align-items: center;
-  
+
   background-color: var(--color-background);
   border: 0.15rem solid var(--color-primary-items);
   font-size: 1.2rem;

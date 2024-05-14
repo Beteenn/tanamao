@@ -66,12 +66,12 @@ export default {
 
       <p class="label-text">Descrição:</p>
       <div class="row">
-        <textarea class="text-area" type="text" v-model="note.text" ></textarea>
+        <textarea class="text-area" type="text" v-model="note.text"></textarea>
       </div>
 
       <div class="buttons-row">
         <ConfirmButton text="Atualizar Nota" @click="editTopic()" />
-        <CancelButton text="Cancelar" @click="goBack"/>
+        <CancelButton text="Cancelar" @click="goBack" />
       </div>
     </div>
   </main>

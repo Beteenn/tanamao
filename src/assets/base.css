@@ -8,20 +8,18 @@
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #292929;
 
-  --vt-c-indigo: #2c3e50;
-
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
   --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-1: #1a1a1a;
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(207, 207, 207, 1);
 
   --vt-c-primary-items: #5db075;
-  --vt-c-primary-border-items: #1a1a1a;
+  --vt-c-primary-border-items: #a5a5a5;
 }
 
 /* semantic color variables for this project */
@@ -35,6 +33,8 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+
+  --color-primary-items: var(--vt-c-primary-items);
 
   --section-gap: 160px;
 }
@@ -111,39 +111,10 @@ body {
   display: flex;
 }
 
-.input {
-  flex-basis: 100%;
-  display: flex;
-  padding: 0 1rem;
-  font-weight: normal;
-  color: #cfcfcf;
-  background-color: #292929;
-  font-size: 1.2rem;
-  height: 7vh;
-  border-radius: 0.3rem;
-  margin: 0.6rem 0;
+.icon-stroke > svg > path {
+  stroke: var(--color-heading);
 }
 
-.text-area {
-  flex-basis: 100%;
-  box-sizing: content-box;
-  padding: 0.5rem 1rem;
-  color: #cfcfcf;
-  background-color: #292929;
-  font-size: 1rem;
-  margin: 0.5rem 0;
-  height: 20vh;
-  border-radius: 0.3rem;
-}
-
-.label-text {
-  font-size: 1rem;
-  font-weight: bold;
-  padding-top: 1.2rem;
-}
-
-.buttons-row {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
+.icon-fill > svg > path {
+  fill: var(--color-heading);
 }

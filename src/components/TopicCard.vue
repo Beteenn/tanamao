@@ -53,7 +53,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  background-color: var(--color-background-mute);
+  background-color: var(--color-background-soft);
   font-size: 1.2rem;
   height: 7vh;
   border-radius: 0.3rem;
@@ -63,8 +63,6 @@ export default {
 
 .topic-card:hover {
   transition-duration: 0.3s;
-  color: white;
-  border-color: #464646;
-  background-color: #888888;
+  background-color: var(--color-background-mute);
 }
 </style>

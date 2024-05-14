@@ -35,9 +35,9 @@ a,
 }
 
 .title {
-  color: white;
+  color: var(--color-heading);
   text-align: center;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .icon-item {
@@ -63,4 +63,41 @@ a,
 .icon-row {
   display: flex;
   justify-content: end;
+}
+
+.input {
+  flex-basis: 100%;
+  display: flex;
+  padding: 0 1rem;
+  font-weight: normal;
+  color: var(--color-text);
+  background-color: var(--color-background-soft);
+  font-size: 1.2rem;
+  height: 7vh;
+  border-radius: 0.3rem;
+  margin: 0.6rem 0;
+}
+
+.text-area {
+  flex-basis: 100%;
+  box-sizing: content-box;
+  padding: 0.5rem 1rem;
+  color: var(--color-text);
+  background-color: var(--color-background-soft);
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  height: 20vh;
+  border-radius: 0.3rem;
+}
+
+.label-text {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 1.2rem;
+}
+
+.buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }

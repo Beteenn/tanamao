@@ -49,8 +49,8 @@ export default {
       <span v-if="!showBackButton">
         <i class="icon-item"></i>
       </span>
-      <span class="title-page"
-        ><p>{{ titlePage }}</p></span
+      <span class="title-page-line"
+        ><p class="title-page">{{ titlePage }}</p></span
       >
     </div>
   </header>
@@ -78,6 +78,7 @@ export default {
 .title {
   margin: auto;
   font-family: 'Paprika';
+  color: var(--color-heading);
 }
 
 .highlighted-title {
@@ -100,9 +101,12 @@ export default {
   margin: 1.5rem 0 0.8rem 0;
 }
 
+.title-page-line {
+  margin: auto;
+}
+
 .title-page {
   font-size: 1.2rem;
-  color: var(--color-heading);
-  margin: auto;
+  font-weight: bold;
 }
 </style>

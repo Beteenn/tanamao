@@ -71,12 +71,17 @@ export default {
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  background-color: #292929;
+  background-color: var(--color-background-soft);
   font-size: 1.2rem;
   padding: 0.5rem 0.6rem 1rem 1.2rem;
   border-radius: 0.3rem;
   margin: 1rem 0;
   word-wrap: break-word;
+}
+
+.card:hover {
+  transition-duration: 0.3s;
+  background-color: var(--color-background-mute);
 }
 
 .title-row {
