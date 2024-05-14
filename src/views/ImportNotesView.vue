@@ -89,7 +89,7 @@ export default {
         accept="application/json"
         @change="onFileChanged($event)"
       />
-      <span v-if="!selectedFile" class="file-input-text">Selecione um arquivo... &#128196;</span>
+      <span v-if="!selectedFile" class="file-input-text">Selecione um arquivo</span>
       <span v-else class="file-input-text">{{ selectedFileName }}</span>
     </label>
 
@@ -100,22 +100,21 @@ export default {
       <input type="radio" id="add" class="hidden" v-model="selectedOption" value="2" />
       <label for="add" class="radio-label">Acrescentar aos existentes</label>
     </div>
-
-    <PrimaryButton text="Adicionar Tópico" @click="importFile" />
   </div>
+  <PrimaryButton text="Adicionar Tópico" @click="importFile" />
 </template>
 
 <style scoped>
 .container {
-  justify-content: center;
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  height: 75vh;
 }
 
 .radio-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 2rem;
 }
 
@@ -130,19 +129,15 @@ export default {
   padding: 10px 15px;
   margin-right: 10px;
   cursor: pointer;
-  border: 2px solid #ccc;
+  background-color: var(--color-background-soft);
+  border: 1px solid var(--color-background-soft);
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
-.radio-label:hover {
-  background-color: #f0f0f0;
-}
-
 input[type='radio']:checked + .radio-label {
-  background-color: #8000ff;
-  color: #fff;
-  border-color: #5801af;
+  border: 1px solid var(--color-primary-items);
+  color: var(--color-heading);
 }
 
 .file-input-label {
@@ -152,15 +147,15 @@ input[type='radio']:checked + .radio-label {
   min-width: 15rem;
   min-height: 15rem;
   padding: 10px 15px;
-  background-color: #edeff5;
-  border: 1px solid #454546;
-  color: black;
+  background-color: var(--color-background-soft);
+  color: var(--color-text);
   border-radius: 5px;
   cursor: pointer;
 }
 
+.radio-label:hover,
 .file-input-label:hover {
-  background-color: #c6c9d1;
+  background-color: var(--color-background-mute);
 }
 
 .hidden {

@@ -38,10 +38,12 @@ export default {
   <main>
     <HeaderApp :showBackButton="true" title-page="Configurações" />
 
-    <div class="setting-card" @click="goToImport">Importar Topicos e Notas
+    <div class="setting-card" @click="goToImport">
+      Importar Topicos e Notas
       <BaseIcon name="upload" />
     </div>
-    <div class="setting-card" @click="exportJson">Exportar Topicos e Notas
+    <div class="setting-card" @click="exportJson">
+      Exportar Topicos e Notas
       <BaseIcon name="download" />
     </div>
   </main>
