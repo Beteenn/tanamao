@@ -1,19 +1,21 @@
 <script setup lang="ts"></script>
 
 <template>
-  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16 11V14.3333C16 14.7754 15.8244 15.1993 15.5118 15.5118C15.1993 15.8244 14.7754 16 14.3333 16H2.66667C2.22464 16 1.80072 15.8244 1.48816 15.5118C1.17559 15.1993 1 14.7754 1 14.3333V11"
-      stroke="white"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M12.6668 5.16667L8.50016 1L4.3335 5.16667"
-      stroke="white"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path d="M8.5 1V11" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
+  <div class="icon-stroke">
+    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16 11V14.3333C16 14.7754 15.8244 15.1993 15.5118 15.5118C15.1993 15.8244 14.7754 16 14.3333 16H2.66667C2.22464 16 1.80072 15.8244 1.48816 15.5118C1.17559 15.1993 1 14.7754 1 14.3333V11"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M12.6668 5.16667L8.50016 1L4.3335 5.16667"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M8.5 1V11" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
 </template>
