@@ -37,16 +37,20 @@ export default {
 </script>
 
 <template>
-  <div class="topic-card" @click="openNotes">
-    <p class="text">{{ name }}</p>
+  <div class="topic-card">
+    <p class="text" @click="openNotes">{{ name }}</p>
     <div class="icon-row">
-      <BaseIcon name="trash" />
+      <BaseIcon name="trash" @click="triggerEventDeleteTopic"/>
       <BaseIcon name="edit" />
     </div>
   </div>
 </template>
 
 <style scoped>
+
+.text{
+  display: flex;
+}
 .topic-card {
   cursor: pointer;
   display: flex;
